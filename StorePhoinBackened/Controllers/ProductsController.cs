@@ -8,9 +8,9 @@ namespace SW.Payroll.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly DBContext _context;
 
-        public ProductsController(AppDbContext context)
+        public ProductsController(DBContext context)
         {
             _context = context;
         }

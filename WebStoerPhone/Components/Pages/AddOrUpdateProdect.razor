@@ -1,8 +1,8 @@
 ﻿@page "/add-product"
-
+@using StorePhoinBackened.Models
+<h3>Add Product</h3>
 @inject HttpClient Http
 
-<!-- إضافة رابط إلى ملف CSS -->
 <link href="css/AddProduct.css" rel="stylesheet" />
 
 <h3>إضافة منتج</h3>
@@ -39,7 +39,7 @@
 </div>
 
 @code {
-    private Product MyProduct = new();
+     Product MyProduct = new();
 
     private async Task HandleValidSubmit()
     {
@@ -52,7 +52,6 @@
         }
         else
         {
-            // معالجة الأخطاء
         }
     }
 
@@ -67,11 +66,5 @@
         }
     }
 
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public byte[] Image { get; set; } // حفظ الصورة كبيانات ثنائية
-    }
+   
 }
