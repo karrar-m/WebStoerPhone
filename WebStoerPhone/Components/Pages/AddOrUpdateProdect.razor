@@ -1,0 +1,77 @@
+﻿@page "/add-product"
+
+@inject HttpClient Http
+
+<!-- إضافة رابط إلى ملف CSS -->
+<link href="css/AddProduct.css" rel="stylesheet" />
+
+<h3>إضافة منتج</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <EditForm Model="MyProduct" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label for="productName">اسم المنتج</label>
+                    <InputText id="productName" class="form-control" @bind-Value="MyProduct.Name" />
+                    <ValidationMessage For="@(() => MyProduct.Name)" />
+                </div>
+
+                <div class="form-group">
+                    <label for="productDescription">وصف المنتج</label>
+                    <InputTextArea id="productDescription" class="form-control" @bind-Value="MyProduct.Description" />
+                    <ValidationMessage For="@(() => MyProduct.Description)" />
+                </div>
+
+                <div class="form-group">
+                    <label for="productImage">تحميل الصورة</label>
+                    <InputFile id="productImage" OnChange="HandleFileSelected" />
+                    <ValidationMessage For="@(() => MyProduct.Image)" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">إضافة المنتج</button>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Product MyProduct = new();
+
+    private async Task HandleValidSubmit()
+    {
+        var response = await Http.PostAsJsonAsync("api/products", MyProduct);
+
+        if (response.IsSuccessStatusCode)
+        {
+            // معالجة الاستجابة الناجحة
+            MyProduct = new Product(); // إعادة تعيين النموذج
+        }
+        else
+        {
+            // معالجة الأخطاء
+        }
+    }
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.GetMultipleFiles(1).FirstOrDefault();
+        if (file != null)
+        {
+            using var memoryStream = new MemoryStream();
+            await file.OpenReadStream().CopyToAsync(memoryStream);
+            MyProduct.Image = memoryStream.ToArray();
+        }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public byte[] Image { get; set; } // حفظ الصورة كبيانات ثنائية
+    }
+}
