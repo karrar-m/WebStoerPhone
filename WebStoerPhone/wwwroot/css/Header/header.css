@@ -1,0 +1,69 @@
+﻿/* header.css */
+
+/* نمط الهيدر */
+.header {
+    background: linear-gradient(135deg, #2980b9, #6dd5ed); /* تدرج لوني للخلفية */
+    color: #fff; /* لون نص أبيض */
+    padding: 15px 0; /* حشوة من الأعلى والأسفل */
+}
+
+/* تنسيق الحاوية */
+.container {
+    max-width: 1200px; /* أقصى عرض للحاوية */
+    margin: 0 auto; /* توسيط الحاوية */
+    padding: 0 20px; /* حشوة من الجانبين */
+    display: flex; /* استخدام العرض المرن */
+    justify-content: space-between; /* توزيع العناصر بالتساوي */
+    align-items: center; /* محاذاة العناصر في المنتصف */
+}
+
+/* تنسيق الشعار */
+.logo {
+    font-size: 28px; /* حجم خط الشعار */
+    font-weight: bold; /* وزن الخط */
+    letter-spacing: 1px; /* تباعد الحروف */
+}
+
+/* نمط روابط التنقل */
+.nav-links {
+    list-style: none; /* إزالة النقاط من قائمة الروابط */
+    display: flex; /* استخدام العرض المرن */
+    padding: 0; /* إزالة الحشوة */
+    margin: 0; /* إزالة الهامش */
+}
+
+    /* تنسيق كل رابط */
+    .nav-links li {
+        margin: 0 20px; /* هامش من الجانبين */
+    }
+
+    /* نمط الروابط */
+    .nav-links a {
+        color: #fff; /* لون النص */
+        text-decoration: none; /* إزالة الخط السفلي */
+        font-size: 18px; /* حجم الخط */
+        position: relative; /* إعداد الموضع النسبي */
+        transition: color 0.3s ease; /* تأثير الانتقال عند تغيير اللون */
+    }
+
+        /* تأثير عند التحويم */
+        .nav-links a:hover {
+            color: #f39c12; /* لون جديد عند التحويم */
+        }
+
+        /* تأثير الخط السفلي عند التحويم */
+        .nav-links a::after {
+            content: ''; /* إنشاء عنصر افتراضي */
+            display: block; /* جعل العنصر كتلة */
+            width: 0; /* العرض الابتدائي */
+            height: 2px; /* ارتفاع الخط السفلي */
+            background: #f39c12; /* لون الخط السفلي */
+            transition: width 0.3s; /* تأثير الانتقال على العرض */
+            position: absolute; /* موضع مطلق */
+            left: 0; /* محاذاة لليسار */
+            bottom: -5px; /* تباعد تحت الرابط */
+        }
+
+        .nav-links a:hover::after {
+            width: 100%; /* عرض كامل عند التحويم */
+        }
