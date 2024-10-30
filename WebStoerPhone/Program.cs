@@ -1,4 +1,6 @@
+using WebStoerPhone;
 using WebStoerPhone.Components;
+using WebStoerPhone.Components.Pages;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +23,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>()
+app.MapRazorComponents<App>() // Replace <App> if your root component has a different name
     .AddInteractiveServerRenderMode();
 
 app.Run();

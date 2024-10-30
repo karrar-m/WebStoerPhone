@@ -1,0 +1,40 @@
+﻿@page "/login" 
+@using WebStoerPhone.Models
+<PageTitle>login</PageTitle>
+<h3>Login</h3>
+
+<div class="login-form">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" @bind="loginModel.Username" id="username" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" @bind="loginModel.Password" id="password" class="form-control" />
+    </div>
+
+    <button class="custom-login-button" @onclick="HandleLogin">Login</button>
+</div>
+
+@if (!string.IsNullOrEmpty(LoginError))
+{
+    <p class="text-danger">@LoginError</p>
+}
+
+@code {
+    private Login loginModel = new Login();
+    private string? LoginError;
+
+    private void HandleLogin()
+    {
+        if (loginModel.Username == "admin" && loginModel.Password == "password")
+        {
+            LoginError = null;
+        }
+        else
+        {
+            LoginError = "Invalid username or password.";
+        }
+    }
+}
