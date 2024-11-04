@@ -1,69 +1,59 @@
-﻿/* header.css */
-
-/* نمط الهيدر */
-.header {
-    background: linear-gradient(135deg, #2980b9, #6dd5ed); /* تدرج لوني للخلفية */
-    color: #fff; /* لون نص أبيض */
-    padding: 15px 0; /* حشوة من الأعلى والأسفل */
+﻿.header {
+    background: linear-gradient(135deg, #2980b9, #6dd5ed);
+    color: #fff;
+    padding: 15px 0;
 }
 
-/* تنسيق الحاوية */
-.container {
-    max-width: 1200px; /* أقصى عرض للحاوية */
-    margin: 0 auto; /* توسيط الحاوية */
-    padding: 0 20px; /* حشوة من الجانبين */
-    display: flex; /* استخدام العرض المرن */
-    justify-content: space-between; /* توزيع العناصر بالتساوي */
-    align-items: center; /* محاذاة العناصر في المنتصف */
-}
-
-/* تنسيق الشعار */
-.logo {
-    font-size: 28px; /* حجم خط الشعار */
-    font-weight: bold; /* وزن الخط */
-    letter-spacing: 1px; /* تباعد الحروف */
-}
-
-/* نمط روابط التنقل */
-.nav-links {
-    list-style: none; /* إزالة النقاط من قائمة الروابط */
-    display: flex; /* استخدام العرض المرن */
-    padding: 0; /* إزالة الحشوة */
-    margin: 0; /* إزالة الهامش */
-}
-
-    /* تنسيق كل رابط */
-    .nav-links li {
-        margin: 0 20px; /* هامش من الجانبين */
+    .header .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    /* نمط الروابط */
-    .nav-links a {
-        color: #fff; /* لون النص */
-        text-decoration: none; /* إزالة الخط السفلي */
-        font-size: 18px; /* حجم الخط */
-        position: relative; /* إعداد الموضع النسبي */
-        transition: color 0.3s ease; /* تأثير الانتقال عند تغيير اللون */
+    .header .logo {
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
     }
 
-        /* تأثير عند التحويم */
-        .nav-links a:hover {
-            color: #f39c12; /* لون جديد عند التحويم */
+    .header .nav-links {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+    }
+
+        .header .nav-links li {
+            margin: 0 20px;
         }
 
-        /* تأثير الخط السفلي عند التحويم */
-        .nav-links a::after {
-            content: ''; /* إنشاء عنصر افتراضي */
-            display: block; /* جعل العنصر كتلة */
-            width: 0; /* العرض الابتدائي */
-            height: 2px; /* ارتفاع الخط السفلي */
-            background: #f39c12; /* لون الخط السفلي */
-            transition: width 0.3s; /* تأثير الانتقال على العرض */
-            position: absolute; /* موضع مطلق */
-            left: 0; /* محاذاة لليسار */
-            bottom: -5px; /* تباعد تحت الرابط */
+        .header .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            transition: color 0.3s ease;
         }
 
-        .nav-links a:hover::after {
-            width: 100%; /* عرض كامل عند التحويم */
-        }
+            .header .nav-links a:hover {
+                color: #f39c12;
+            }
+
+            .header .nav-links a::after {
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                background: #f39c12;
+                transition: width 0.3s;
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+            }
+
+            .header .nav-links a:hover::after {
+                width: 100%;
+            }
